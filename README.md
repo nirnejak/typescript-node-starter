@@ -37,3 +37,19 @@ npm run build
 ```bash
 npm start
 ```
+
+---
+
+## Docker Config
+
+**Build Image**
+
+```bash
+docker build
+```
+
+**Run Image**
+
+```bash
+docker run -p 5000:5000 <image-id>
+```
