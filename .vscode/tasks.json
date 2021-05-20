@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "develop",
+      "label": "npm: develop",
+      "detail": "Node Start Script(Development)"
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "label": "npm: start",
+      "detail": "Node Start Script(Production)"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "Node Build Script"
+    }
+  ]
+}
