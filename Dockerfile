@@ -9,6 +9,6 @@ RUN apk update && \
 
 ENV PORT=5000
 
-CMD npm start
+CMD ["node", "dist/index.js"]
 
 EXPOSE 5000
