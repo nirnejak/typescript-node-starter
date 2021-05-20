@@ -1,4 +1,4 @@
-import express, { Application, Request, Response, Router } from "express"
+import express, { Application, Request, Response } from "express"
 
 import logger from "./middlewares/logger"
 require("dotenv").config()
