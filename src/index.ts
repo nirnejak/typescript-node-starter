@@ -8,7 +8,8 @@ const app: Application = express()
 app.use(logger)
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello Typescript!")
+  res.locals = { name: "Jitendra Nirnejak" }
+  res.send(`Hello Typescript!`)
 })
 
 app.listen(process.env.PORT, () => {
