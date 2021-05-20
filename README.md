@@ -14,6 +14,12 @@ Node.js and express project starter using TypeScript
 npm install
 ```
 
+**Setup Pre-commit**
+
+```bash
+npm run prepare
+```
+
 **Start Development Server**
 
 ```bash
