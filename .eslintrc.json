@@ -10,5 +10,7 @@
     "ecmaVersion": 12
   },
   "plugins": ["@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error"
+  }
 }
