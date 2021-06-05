@@ -1,11 +1,11 @@
 import { Router, Request, Response } from "express"
 
-import UserInterface from "../interfaces/user.interface"
+import IUser from "../interfaces/user.interface"
 
 const userRouter = Router()
 
 userRouter.get("/", (req: Request, res: Response) => {
-  const users: UserInterface[] = [
+  const users: IUser[] = [
     {
       name: "Jitendra",
       email: "jeetnirnejak@gmail.com",

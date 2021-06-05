@@ -1,7 +1,7 @@
-interface UserInterface {
+interface IUser {
   name: String
   email: String
   contact: String
 }
 
-export default UserInterface
+export default IUser
