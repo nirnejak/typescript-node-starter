@@ -9,8 +9,7 @@
     "standard",
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:security/recommended",
-    "plugin:node/recommended"
+    "plugin:security/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
