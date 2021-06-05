@@ -2,14 +2,21 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
-  "extends": ["standard", "eslint:recommended", "plugin:prettier/recommended"],
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:security/recommended",
+    "plugin:node/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "security"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error"
   }
