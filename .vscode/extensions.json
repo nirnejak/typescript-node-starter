@@ -5,11 +5,12 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "jock.svg",
-    "stylelint.vscode-stylelint",
     "ms-azuretools.vscode-docker",
     "visualstudioexptteam.vscodeintellicode",
     "prisma.prisma",
     "apollographql.vscode-apollo",
-    "graphql.vscode-graphql"
+    "graphql.vscode-graphql",
+    "mariusalchimavicius.json-to-ts",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
