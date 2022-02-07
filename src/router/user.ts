@@ -1,18 +1,9 @@
-import { Router, Request, Response } from "express"
+import { Router } from "express"
 
-import IUser from "../interfaces/user.interface"
+import userController from "../controllers/userController"
 
 const userRouter = Router()
 
-userRouter.get("/", (req: Request, res: Response) => {
-  const users: IUser[] = [
-    {
-      name: "Jitendra",
-      email: "jeetnirnejak@gmail.com",
-      contact: "7869290297",
-    },
-  ]
-  res.json({ users })
-})
+userRouter.get("/", userController.getUsers)
 
 export default userRouter
