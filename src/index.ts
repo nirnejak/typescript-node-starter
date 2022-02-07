@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express"
 import dotenv from "dotenv"
+import cors from "cors"
 
 import userRouter from "./router/user"
 import logger from "./middlewares/logger"
@@ -8,6 +9,7 @@ import errorHandler from "./middlewares/errorHandler"
 dotenv.config()
 const app: Application = express()
 
+app.use(cors())
 app.use(logger)
 
 app.get("/", (req: Request, res: Response) => {
