@@ -1,9 +1,10 @@
 import express, { Application, Request, Response } from "express"
+import dotenv from "dotenv"
 
 import userRouter from "./router/user"
 import logger from "./middlewares/logger"
-require("dotenv").config()
 
+dotenv.config()
 const app: Application = express()
 
 app.use(logger)
