@@ -3,14 +3,14 @@ import dotenv from "dotenv"
 import cors from "cors"
 
 import userRouter from "./router/user"
-import logger from "./middlewares/logger"
+import requestLogger from "./middlewares/requestLogger"
 import errorHandler from "./middlewares/errorHandler"
 
 dotenv.config()
 const app: Application = express()
 
 app.use(cors())
-app.use(logger)
+app.use(requestLogger)
 
 app.get("/", (req: Request, res: Response) => {
   res.locals = { name: "Jitendra Nirnejak" }
@@ -18,7 +18,7 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 // Routes
-app.use("/user", userRouter)
+app.use("/api/user", userRouter)
 
 app.use(errorHandler)
 
