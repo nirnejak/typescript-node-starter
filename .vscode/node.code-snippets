@@ -1,0 +1,27 @@
+{
+  "Controller Snippet": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact,vue,html",
+    "prefix": "tcon",
+    "body": [
+      "import { Request, Response } from \"express\"",
+      "",
+      "/**",
+      " * @route GET /api/${1:route}",
+      " * @access ${2:Public/Private}",
+      " * @param req Request Object",
+      " * @param res Response Object",
+      " * @description ${3:Controller Description}",
+      " */",
+      "",
+      "const ${4:controllerFunction} = (req: Request, res: Response) => {",
+      "  $0",
+      "}",
+      "",
+      "export default {",
+      "  ${4:controllerFunction},",
+      "}",
+      ""
+    ],
+    "description": "Express Controller Snippet"
+  }
+}
