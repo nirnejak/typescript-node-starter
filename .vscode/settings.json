@@ -16,5 +16,5 @@
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "cSpell.words": []
+  "cSpell.words": ["colorette"]
 }
