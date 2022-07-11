@@ -53,3 +53,18 @@ docker build
 ```bash
 docker run -p 5000:5000 <image-id>
 ```
+
+---
+
+## Guides
+
+- [Best Practices](https://github.com/goldbergyoni/nodebestpractices)
+
+---
+
+## Next Steps
+
+- Database - [Prisma](https://www.prisma.io/) or [Postgres.js](https://github.com/porsager/postgres)
+- API Doc - [Swagger](https://swagger.io/)
+- Web Socket - [Socket.io](https://socket.io/)
+- Background Worker - [BullMQ](https://docs.bullmq.io/)
