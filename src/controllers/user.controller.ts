@@ -1,7 +1,5 @@
 import { Request, Response } from "express"
 
-import IUser from "../interfaces/user.interface"
-
 /**
  * @route GET /api/users
  * @access Public
@@ -10,7 +8,7 @@ import IUser from "../interfaces/user.interface"
  * @description Get Users
  */
 const getUsers = (req: Request, res: Response) => {
-  const users: IUser[] = [
+  const users = [
     {
       name: "Jitendra",
       email: "jeetnirnejak@gmail.com",
