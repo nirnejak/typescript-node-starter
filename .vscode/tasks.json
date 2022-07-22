@@ -3,26 +3,32 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "develop",
-      "label": "npm: develop",
-      "detail": "Node Start Script(Development)"
+      "script": "start",
+      "problemMatcher": [],
+      "label": "Start Production Server",
+      "detail": "npm start"
     },
     {
       "type": "npm",
-      "script": "start",
-      "label": "npm: start",
-      "detail": "Node Start Script(Production)"
+      "script": "dev",
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "Start Development Server",
+      "detail": "npm run dev"
     },
     {
       "type": "npm",
       "script": "build",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
       },
       "problemMatcher": [],
-      "label": "npm: build",
-      "detail": "Node Build Script"
+      "label": "Build for Production",
+      "detail": "npm run build"
     }
   ]
 }
