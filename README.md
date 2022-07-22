@@ -56,6 +56,11 @@ docker run -p 5000:5000 <image-id>
 
 ---
 
+## Development Setup
+
+- VS Code - Install the recommended extensions
+- Volta - For managing node versions
+
 ## Guides
 
 - [Best Practices](https://github.com/goldbergyoni/nodebestpractices)
@@ -69,3 +74,4 @@ docker run -p 5000:5000 <image-id>
 - Logging - [Pino](https://getpino.io/)
 - Web Socket - [Socket.io](https://socket.io/)
 - Background Worker - [BullMQ](https://docs.bullmq.io/)
+- GraphQL - [Mercurius](https://mercurius.dev/)
