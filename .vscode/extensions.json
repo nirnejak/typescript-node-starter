@@ -9,6 +9,7 @@
     "prisma.prisma",
     "apollographql.vscode-apollo",
     "graphql.vscode-graphql",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "VisualStudioExptTeam.vscodeintellicode"
   ]
 }
