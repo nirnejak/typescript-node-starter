@@ -5,11 +5,9 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "ms-azuretools.vscode-docker",
-    "visualstudioexptteam.vscodeintellicode",
     "prisma.prisma",
     "apollographql.vscode-apollo",
     "graphql.vscode-graphql",
-    "streetsidesoftware.code-spell-checker",
-    "VisualStudioExptTeam.vscodeintellicode"
+    "streetsidesoftware.code-spell-checker"
   ]
 }
