@@ -6,6 +6,14 @@ Node.js and express project starter using TypeScript
 
 ---
 
+## Additional Packages Used
+
+- colorette - for styling console output
+- date-fns - for date operations and formatting
+- heapdump - for getting dump of the current memory heap
+
+---
+
 ## Available Scripts
 
 **Install Dependencies**
