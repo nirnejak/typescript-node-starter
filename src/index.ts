@@ -39,12 +39,8 @@ fastify.get("/", async () => {
 })
 
 // Routes
-fastify.register(userRoutes, {
-  prefix: "/api/users",
-})
-fastify.register(opsRoutes, {
-  prefix: "/api/ops",
-})
+fastify.register(userRoutes, { prefix: "/api/users" })
+fastify.register(opsRoutes, { prefix: "/api/ops" })
 
 // TODO: Add error middleware/plugin
 
