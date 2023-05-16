@@ -1,7 +1,22 @@
 import Fastify, { FastifyReply } from "fastify"
 import dotenv from "dotenv"
 
-import userRouter from "./router/user"
+import userRoutes from "./router/user"
+import opsRoutes from "./router/ops"
+
+const envToLogger = {
+  development: {
+    transport: {
+      target: "pino-pretty",
+      options: {
+        translateTime: "HH:MM:ss Z",
+        ignore: "pid,hostname",
+      },
+    },
+  },
+  production: true,
+  test: false,
+}
 
 dotenv.config()
 const fastify = Fastify({
@@ -24,15 +39,18 @@ fastify.get("/", async () => {
 })
 
 // Routes
-fastify.register(userRouter, {
+fastify.register(userRoutes, {
   prefix: "/api/users",
+})
+fastify.register(opsRoutes, {
+  prefix: "/api/ops",
 })
 
 // TODO: Add error middleware/plugin
 
 async function main() {
   await fastify.listen({
-    port: process.env.PORT as number,
+    port: parseInt(process.env.PORT as string),
     host: "0.0.0.0",
   })
 }

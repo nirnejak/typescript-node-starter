@@ -1,9 +1,21 @@
-import { Router } from "express"
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
 
-import userController from "../controllers/user.controller"
+const userRoutes = async (fastify: FastifyInstance) => {
+  fastify.post("/", {
+    handler: async (
+      request: FastifyRequest<{
+        Body: {
+          name: string
+          age: number
+        }
+      }>,
+      reply: FastifyReply
+    ) => {
+      const body = request.body
 
-const userRouter = Router()
+      return reply.code(201).send(body)
+    },
+  })
+}
 
-userRouter.get("/", userController.getUsers)
-
-export default userRouter
+export default userRoutes
