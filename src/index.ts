@@ -1,30 +1,57 @@
-import express, { Application, Request, Response } from "express"
+import Fastify, { FastifyReply } from "fastify"
 import dotenv from "dotenv"
-import cors from "cors"
 
-import userRouter from "./router/user"
-import requestLogger from "./middlewares/requestLogger"
-import errorHandler from "./middlewares/errorHandler"
+import userRoutes from "./router/user"
+import opsRoutes from "./router/ops"
+
+const envToLogger = {
+  development: {
+    transport: {
+      target: "pino-pretty",
+      options: {
+        translateTime: "HH:MM:ss Z",
+        ignore: "pid,hostname",
+      },
+    },
+  },
+  production: true,
+  test: false,
+}
 
 dotenv.config()
-const app: Application = express()
+const fastify = Fastify({
+  // logger: envToLogger[environment] ?? true,
+  logger: true,
+})
 
-app.use(cors())
-app.use(requestLogger)
+fastify.addHook("onRequest", async () => {
+  fastify.log.info("Got a request")
+})
 
-app.get("/", (req: Request, res: Response) => {
-  res.locals = { name: "Jitendra Nirnejak" }
-  res.send(`Hello Typescript!`)
+fastify.addHook("onResponse", async (request, reply: FastifyReply) => {
+  fastify.log.info(`Responding ${reply.getResponseTime()}`)
+})
+
+fastify.get("/", async () => {
+  return {
+    message: "Hello Fastify!",
+  }
 })
 
 // Routes
-app.use("/api/user", userRouter)
+fastify.register(userRoutes, { prefix: "/api/users" })
+fastify.register(opsRoutes, { prefix: "/api/ops" })
 
-app.use(errorHandler)
+// TODO: Add error handling plugin
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server Started at ${process.env.PORT}`)
-})
+async function main() {
+  await fastify.listen({
+    port: parseInt(process.env.PORT as string),
+    host: "0.0.0.0",
+  })
+}
+
+main()
 
 process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
   console.log(p)
