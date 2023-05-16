@@ -1,6 +1,6 @@
 # Typescript Node Starter
 
-Node.js and express project starter using TypeScript
+Node.js and Fastify project starter using TypeScript
 
 > Note: Need to configure `.env` file to use local server
 
