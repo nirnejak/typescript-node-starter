@@ -42,7 +42,7 @@ fastify.get("/", async () => {
 fastify.register(userRoutes, { prefix: "/api/users" })
 fastify.register(opsRoutes, { prefix: "/api/ops" })
 
-// TODO: Add error middleware/plugin
+// TODO: Add error handling plugin
 
 async function main() {
   await fastify.listen({
