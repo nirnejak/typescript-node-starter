@@ -79,7 +79,6 @@ docker run -p 5000:5000 <image-id>
 
 - Database - [Prisma](https://www.prisma.io/) or [Postgres.js](https://github.com/porsager/postgres)
 - API Doc - [Swagger](https://swagger.io/)
-- Logging - [Pino](https://getpino.io/)
 - Web Socket - [Socket.io](https://socket.io/)
 - Background Worker - [BullMQ](https://docs.bullmq.io/)
 - GraphQL - [Mercurius](https://mercurius.dev/)
