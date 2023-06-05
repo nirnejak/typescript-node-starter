@@ -1,5 +1,6 @@
 import Fastify, { FastifyReply } from "fastify"
 import dotenv from "dotenv"
+import helmet from "@fastify/helmet"
 
 import userRoutes from "./router/user"
 import opsRoutes from "./router/ops"
@@ -23,6 +24,8 @@ const fastify = Fastify({
   // logger: envToLogger[environment] ?? true,
   logger: true,
 })
+
+fastify.register(helmet, { global: true })
 
 fastify.addHook("onRequest", async () => {
   fastify.log.info("Got a request")
