@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/heapdump": "^0.3.1",
-    "@types/node": "^20.4.1",
+    "@types/node": "^20.4.2",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.44.0",
