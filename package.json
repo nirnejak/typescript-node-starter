@@ -29,10 +29,10 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/heapdump": "^0.3.1",
-    "@types/node": "^20.4.2",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.44.0",
+    "@types/node": "^20.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.27.5",
@@ -53,7 +53,7 @@
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
-    "fastify": "^4.19.2",
+    "fastify": "^4.20.0",
     "heapdump": "^0.3.15"
   },
   "lint-staged": {
