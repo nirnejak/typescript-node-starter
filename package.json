@@ -28,10 +28,10 @@
   "homepage": "https://github.com/nirnejak/typescript-node-starter#readme",
   "devDependencies": {
     "@types/cors": "^2.8.14",
-    "@types/heapdump": "^0.3.1",
-    "@types/node": "^20.6.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
+    "@types/heapdump": "^0.3.2",
+    "@types/node": "^20.6.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.1.0",
@@ -48,12 +48,12 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@fastify/helmet": "^11.1.0",
+    "@fastify/helmet": "^11.1.1",
     "colorette": "^2.0.20",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
-    "fastify": "^4.23.1",
+    "fastify": "^4.23.2",
     "heapdump": "^0.3.15"
   },
   "lint-staged": {
