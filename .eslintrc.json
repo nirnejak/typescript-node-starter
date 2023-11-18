@@ -1,4 +1,8 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
   "env": {
     "browser": true,
     "commonjs": true,
@@ -6,17 +10,15 @@
     "node": true
   },
   "extends": [
-    "standard",
+    "standard-with-typescript",
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:security/recommended"
+    "plugin:security/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 12
-  },
   "plugins": ["@typescript-eslint", "security"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error"
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
