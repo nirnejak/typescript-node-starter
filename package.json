@@ -51,7 +51,7 @@
     "@fastify/helmet": "^11.1.1",
     "colorette": "^2.0.20",
     "cors": "^2.8.5",
-    "date-fns": "^3.0.6",
+    "date-fns": "^3.1.0",
     "dotenv": "^16.3.1",
     "fastify": "^4.25.2",
     "heapdump": "^0.3.15"
