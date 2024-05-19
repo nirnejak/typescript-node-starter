@@ -4,6 +4,7 @@ import helmet from "@fastify/helmet"
 
 import userRoutes from "./router/user"
 import opsRoutes from "./router/ops"
+import errorHandlerPlugin from "./plugins/errorHandlerPlugin"
 
 const envToLogger = {
   development: {
@@ -41,11 +42,12 @@ fastify.get("/", async () => {
   }
 })
 
+// Error handling plugin
+fastify.register(errorHandlerPlugin)
+
 // Routes
 fastify.register(userRoutes, { prefix: "/api/users" })
 fastify.register(opsRoutes, { prefix: "/api/ops" })
-
-// TODO: Add error handling plugin
 
 async function main() {
   await fastify.listen({
