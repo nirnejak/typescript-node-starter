@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "dsznajder.es7-react-js-snippets",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "ms-azuretools.vscode-docker",
