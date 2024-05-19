@@ -51,7 +51,7 @@ fastify.register(opsRoutes, { prefix: "/api/ops" })
 
 async function main() {
   await fastify.listen({
-    port: parseInt(process.env.PORT as string),
+    port: parseInt(process.env.PORT || "5000"),
     host: "0.0.0.0",
   })
 }
