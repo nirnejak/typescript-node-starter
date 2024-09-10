@@ -1,5 +1,5 @@
 # Google App Engine Config
-runtime: nodejs1
+runtime: nodejs20
 
 instance_class: F2
 
