@@ -7,8 +7,8 @@ RUN apk update && \
     npm install && \
     npm run build
 
-ENV PORT=5000
+ENV PORT=9000
 
 CMD ["node", "dist/index.js"]
 
-EXPOSE 5000
+EXPOSE 9000
