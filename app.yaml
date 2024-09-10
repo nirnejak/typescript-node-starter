@@ -4,7 +4,7 @@ runtime: nodejs1
 instance_class: F2
 
 env_variables:
-  PORT: 3000
+  PORT: 9000
 
 handlers:
   - url: /.*
