@@ -77,7 +77,7 @@ docker run -p 5000:5000 <image-id>
 
 ## Next Steps
 
-- Database - [Prisma](https://www.prisma.io/), [Drizzle](https://github.com/drizzle-team/drizzle-orm) or [Kysely](https://github.com/kysely-org/kysely)
+- Database - [Prisma](https://www.prisma.io/), [Drizzle](https://drizzle.team/) or [Kysely](https://github.com/kysely-org/kysely)
 - API Doc - [Swagger](https://swagger.io/)
 - Web Socket - [Socket.io](https://socket.io/)
 - Background Worker - [BullMQ](https://docs.bullmq.io/)
