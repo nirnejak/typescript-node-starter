@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "tsc -p .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "lint": "eslint ./src/*.*"
   },
