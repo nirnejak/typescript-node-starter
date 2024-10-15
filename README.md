@@ -79,6 +79,6 @@ docker run -p 5000:5000 <image-id>
 
 - Database - [Prisma](https://www.prisma.io/) or [Drizzle](https://drizzle.team/)
 - API Doc - [Swagger](https://swagger.io/)
+- GraphQL - [Mercurius](https://mercurius.dev/)
 - Web Socket - [Socket.io](https://socket.io/)
 - Background Worker - [BullMQ](https://docs.bullmq.io/)
-- GraphQL - [Mercurius](https://mercurius.dev/)
