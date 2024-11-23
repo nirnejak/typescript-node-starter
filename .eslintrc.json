@@ -13,12 +13,12 @@
     "standard-with-typescript",
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:security/recommended",
+    "plugin:security/recommended-legacy",
     "plugin:@typescript-eslint/recommended"
   ],
   "plugins": ["@typescript-eslint", "security"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-floating-promises": "off"
   }
 }
