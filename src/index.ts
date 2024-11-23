@@ -1,9 +1,8 @@
-import Fastify, { type FastifyReply } from "fastify"
+import Fastify from "fastify"
 import dotenv from "dotenv"
 import helmet from "@fastify/helmet"
 
 import userRoutes from "./router/user"
-import opsRoutes from "./router/ops"
 import errorHandlerPlugin from "./plugins/errorHandlerPlugin"
 import { getLoggerConfig } from "./utils/logger"
 
@@ -34,19 +33,20 @@ fastify.register(errorHandlerPlugin)
 
 // Routes
 fastify.register(userRoutes, { prefix: "/api/users" })
-fastify.register(opsRoutes, { prefix: "/api/ops" })
 
-async function main() {
+async function main(): Promise<void> {
   await fastify.listen({
-    port: parseInt(process.env.PORT || "5000"),
+    port: parseInt(process.env.PORT ?? "5000"),
     host: "0.0.0.0",
   })
 }
 
 main()
 
+// eslint-disable-next-line "@typescript-eslint/no-explicit-any"
 process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
   console.log(p)
+  // eslint-disable-next-line "@typescript-eslint/no-throw-literal"
   throw reason
 })
 
