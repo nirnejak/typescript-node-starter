@@ -1,29 +1,16 @@
-import Fastify, { FastifyReply } from "fastify"
+import Fastify, { type FastifyReply } from "fastify"
 import dotenv from "dotenv"
 import helmet from "@fastify/helmet"
 
 import userRoutes from "./router/user"
 import opsRoutes from "./router/ops"
 import errorHandlerPlugin from "./plugins/errorHandlerPlugin"
-
-const envToLogger = {
-  development: {
-    transport: {
-      target: "pino-pretty",
-      options: {
-        translateTime: "HH:MM:ss Z",
-        ignore: "pid,hostname",
-      },
-    },
-  },
-  production: true,
-  test: false,
-}
+import { getLoggerConfig } from "./utils/logger"
 
 dotenv.config()
+
 const fastify = Fastify({
-  // logger: envToLogger[environment] ?? true,
-  logger: true,
+  logger: getLoggerConfig(),
 })
 
 fastify.register(helmet, { global: true })
@@ -32,8 +19,8 @@ fastify.addHook("onRequest", async () => {
   fastify.log.info("Got a request")
 })
 
-fastify.addHook("onResponse", async (request, reply: FastifyReply) => {
-  fastify.log.info(`Responding ${reply.getResponseTime()}`)
+fastify.addHook("onResponse", async () => {
+  fastify.log.info(`Responding`)
 })
 
 fastify.get("/", async () => {
