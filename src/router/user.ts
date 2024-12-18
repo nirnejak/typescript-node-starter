@@ -1,10 +1,6 @@
-import {
-  type FastifyInstance,
-  type FastifyReply,
-  type FastifyRequest,
-} from "fastify"
+import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
 
-const userRoutes = async (fastify: FastifyInstance): Promise<void> => {
+const userRoutes = (fastify: FastifyInstance): void => {
   fastify.post("/", {
     handler: async (
       request: FastifyRequest<{
@@ -15,7 +11,7 @@ const userRoutes = async (fastify: FastifyInstance): Promise<void> => {
       }>,
       reply: FastifyReply
     ) => {
-      const body = request.body
+      const { body } = request
 
       return await reply.code(201).send(body)
     },
