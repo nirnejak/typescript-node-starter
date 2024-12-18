@@ -14,15 +14,15 @@ const fastify = Fastify({
 
 fastify.register(helmet, { global: true })
 
-fastify.addHook("onRequest", async () => {
+fastify.addHook("onRequest", () => {
   fastify.log.info("Got a request")
 })
 
-fastify.addHook("onResponse", async () => {
+fastify.addHook("onResponse", () => {
   fastify.log.info(`Responding`)
 })
 
-fastify.get("/", async () => {
+fastify.get("/", () => {
   return {
     message: "Hello Fastify!",
   }
@@ -41,13 +41,13 @@ async function main(): Promise<void> {
   })
 }
 
+// eslint-disable-next-line "@typescript-eslint/no-floating-promises"
 main()
 
 // eslint-disable-next-line "@typescript-eslint/no-explicit-any"
 process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
   console.log(p)
-  // eslint-disable-next-line "@typescript-eslint/no-throw-literal"
-  throw reason
+  throw new Error(reason)
 })
 
 process.on("uncaughtException", (error: Error) => {
