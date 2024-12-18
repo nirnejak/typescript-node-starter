@@ -1,5 +1,8 @@
-// eslint-disable-next-line "@typescript-eslint/no-explicit-any"
-export const getLoggerConfig = (): boolean | any => {
+import type { PinoLoggerOptions } from "fastify/types/logger"
+
+export const getLoggerConfig = (): boolean | PinoLoggerOptions => {
+  let config: PinoLoggerOptions = {}
+
   switch (process.env.NODE_ENV) {
     case "production":
       return true
@@ -7,7 +10,7 @@ export const getLoggerConfig = (): boolean | any => {
       return false
     case "development":
     default:
-      return {
+      config = {
         transport: {
           target: "pino-pretty",
           options: {
@@ -16,5 +19,6 @@ export const getLoggerConfig = (): boolean | any => {
           },
         },
       }
+      return config
   }
 }
