@@ -34,7 +34,7 @@ fastify.register(errorHandlerPlugin)
 // Routes
 fastify.register(userRoutes, { prefix: "/api/users" })
 
-async function main(): Promise<void> {
+const main = async (): Promise<void> => {
   await fastify.listen({
     port: parseInt(process.env.PORT ?? "5000"),
     host: "0.0.0.0",
@@ -46,12 +46,13 @@ main()
 
 // eslint-disable-next-line "@typescript-eslint/no-explicit-any"
 process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
+  // eslint-disable-next-line "no-console"
   console.log(p)
   throw new Error(reason)
 })
 
 process.on("uncaughtException", (error: Error) => {
-  // TODO: Handle error here
+  // eslint-disable-next-line "no-console"
   console.error(error)
   // INFO: if you want to quit the process(usually when the error is unknown), only after properly logging it
   // process.exit(1)
