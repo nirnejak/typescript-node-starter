@@ -54,8 +54,7 @@
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
-    "fastify": "^5.2.1",
-    "motion": "^12.1.0"
+    "fastify": "^5.2.1"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint"
