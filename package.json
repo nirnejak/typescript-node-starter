@@ -22,7 +22,8 @@
   "keywords": [
     "Typescript",
     "Node",
-    "Fastify"
+    "Fastify",
+    "Drizzle"
   ],
   "author": "Jitendra Nirnejak",
   "license": "MIT",
