@@ -8,6 +8,7 @@ Node.js and Fastify project starter using TypeScript
 
 ## Additional Packages Used
 
+- drizzle - for database ORM
 - colorette - for styling console output
 - date-fns - for date operations and formatting
 - heapdump - for getting dump of the current memory heap
@@ -77,7 +78,6 @@ docker run -p 5000:5000 <image-id>
 
 ## Next Steps
 
-- Database - [Prisma](https://www.prisma.io/) or [Drizzle](https://drizzle.team/)
 - API Doc - [Swagger](https://swagger.io/)
 - GraphQL - [Mercurius](https://mercurius.dev/)
 - Web Socket - [Socket.io](https://socket.io/)
