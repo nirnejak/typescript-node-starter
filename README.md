@@ -29,6 +29,18 @@ bun install
 bun run prepare
 ```
 
+**Check ESLint issues**
+
+```bash
+bun run lint
+```
+
+**Format with Prettier**
+
+```bash
+bun run format
+```
+
 **Start Development Server**
 
 ```bash
