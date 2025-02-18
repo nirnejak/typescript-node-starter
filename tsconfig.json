@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "module": "CommonJS",
+    "module": "esnext",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
@@ -9,10 +9,11 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "esModuleInterop": true,
 
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "./eslint.config.js"]
+  "include": ["**/*.ts", "**/*.tsx", "./eslint.config.js"],
+  "exclude": ["node_modules"]
 }
