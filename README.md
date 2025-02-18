@@ -20,31 +20,31 @@ Node.js and Fastify project starter using TypeScript
 **Install Dependencies**
 
 ```bash
-npm install
+bun install
 ```
 
 **Setup Pre-commit**
 
 ```bash
-npm run prepare
+bun run prepare
 ```
 
 **Start Development Server**
 
 ```bash
-npm run develop
+bun run develop
 ```
 
 **Build for Production**
 
 ```bash
-npm run build
+bun run build
 ```
 
 **Start Production Server**
 
 ```bash
-npm start
+bun start
 ```
 
 ---
