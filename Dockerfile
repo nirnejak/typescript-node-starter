@@ -3,9 +3,13 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 RUN apk update && \
-    apk add git nodejs npm && \
-    npm install && \
-    npm run build
+    apk add git nodejs npm
+
+RUN npm install -g bun && \
+    bun install && \
+    bun run build
+
+
 
 ENV PORT=9000
 
