@@ -12,8 +12,14 @@
 
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "erasableSyntaxOnly": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "./eslint.config.js"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "./eslint.config.js",
+    "./drizzle.config.ts"
+  ],
   "exclude": ["node_modules"]
 }
