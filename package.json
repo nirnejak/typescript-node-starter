@@ -32,16 +32,16 @@
   },
   "homepage": "https://github.com/nirnejak/typescript-node-starter#readme",
   "devDependencies": {
-    "@eslint/js": "^9.23.0",
+    "@eslint/js": "^9.24.0",
     "@types/cors": "^2.8.17",
     "@types/heapdump": "^0.3.4",
-    "@types/node": "^22.13.13",
-    "drizzle-kit": "^0.30.5",
-    "eslint": "^9.23.0",
+    "@types/node": "^22.14.0",
+    "drizzle-kit": "^0.30.6",
+    "eslint": "^9.24.0",
     "eslint-config-love": "^119.0.0",
     "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-n": "^17.16.2",
-    "eslint-plugin-prettier": "^5.2.4",
+    "eslint-plugin-n": "^17.17.0",
+    "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-security": "^3.0.1",
     "globals": "^16.0.0",
@@ -50,18 +50,18 @@
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.28.0"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0"
   },
   "dependencies": {
     "@fastify/helmet": "^13.0.1",
-    "@neondatabase/serverless": "^0.10.4",
+    "@neondatabase/serverless": "^1.0.0",
     "colorette": "^2.0.20",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.41.0",
-    "fastify": "^5.2.1"
+    "fastify": "^5.2.2"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint"
