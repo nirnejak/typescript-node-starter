@@ -32,12 +32,12 @@
   },
   "homepage": "https://github.com/nirnejak/typescript-node-starter#readme",
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
+    "@eslint/js": "^9.32.0",
     "@types/cors": "^2.8.19",
     "@types/heapdump": "^0.3.4",
     "@types/node": "^24.1.0",
     "drizzle-kit": "^0.31.4",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "eslint-config-love": "^121.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-n": "^17.21.0",
@@ -59,7 +59,7 @@
     "colorette": "^2.0.20",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
-    "dotenv": "^17.2.0",
+    "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.3",
     "fastify": "^5.4.0"
   },
