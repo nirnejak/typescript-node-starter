@@ -35,7 +35,7 @@
     "@eslint/js": "^9.32.0",
     "@types/cors": "^2.8.19",
     "@types/heapdump": "^0.3.4",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.2.0",
     "drizzle-kit": "^0.31.4",
     "eslint": "^9.32.0",
     "eslint-config-love": "^121.0.0",
@@ -46,12 +46,12 @@
     "eslint-plugin-security": "^3.0.1",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.1.4",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.39.0"
   },
   "dependencies": {
     "@fastify/helmet": "^13.0.1",
