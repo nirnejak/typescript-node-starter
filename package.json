@@ -36,7 +36,7 @@
     "@types/cors": "^2.8.19",
     "@types/heapdump": "^0.3.4",
     "@types/node": "^24.5.2",
-    "drizzle-kit": "^0.31.4",
+    "drizzle-kit": "^0.31.5",
     "eslint": "^9.36.0",
     "eslint-config-love": "^130.0.0",
     "eslint-config-prettier": "^10.1.8",
@@ -46,7 +46,7 @@
     "eslint-plugin-security": "^3.0.1",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.1",
+    "lint-staged": "^16.2.3",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
@@ -54,7 +54,7 @@
     "typescript-eslint": "^8.44.1"
   },
   "dependencies": {
-    "@fastify/helmet": "^13.0.1",
+    "@fastify/helmet": "^13.0.2",
     "@neondatabase/serverless": "^1.0.1",
     "colorette": "^2.0.20",
     "cors": "^2.8.5",
