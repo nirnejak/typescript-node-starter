@@ -32,12 +32,12 @@
   },
   "homepage": "https://github.com/nirnejak/typescript-node-starter#readme",
   "devDependencies": {
-    "@eslint/js": "^9.37.0",
+    "@eslint/js": "^9.38.0",
     "@types/cors": "^2.8.19",
     "@types/heapdump": "^0.3.4",
-    "@types/node": "^24.7.2",
+    "@types/node": "^24.9.1",
     "drizzle-kit": "^0.31.5",
-    "eslint": "^9.37.0",
+    "eslint": "^9.38.0",
     "eslint-config-love": "^133.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-n": "^17.23.1",
@@ -46,12 +46,12 @@
     "eslint-plugin-security": "^3.0.1",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.4",
+    "lint-staged": "^16.2.6",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.1"
+    "typescript-eslint": "^8.46.2"
   },
   "dependencies": {
     "@fastify/helmet": "^13.0.2",
@@ -60,7 +60,7 @@
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
-    "drizzle-orm": "^0.44.6",
+    "drizzle-orm": "^0.44.7",
     "fastify": "^5.6.1"
   },
   "lint-staged": {
