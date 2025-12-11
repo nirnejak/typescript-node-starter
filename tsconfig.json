@@ -15,11 +15,6 @@
     "forceConsistentCasingInFileNames": true,
     "erasableSyntaxOnly": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "./eslint.config.js",
-    "./drizzle.config.ts"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "./eslint.config.js"],
   "exclude": ["node_modules"]
 }
