@@ -31,6 +31,16 @@
     "url": "https://github.com/nirnejak/typescript-node-starter/issues"
   },
   "homepage": "https://github.com/nirnejak/typescript-node-starter#readme",
+  "dependencies": {
+    "@fastify/helmet": "^13.0.2",
+    "@neondatabase/serverless": "^1.0.2",
+    "colorette": "^2.0.20",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
+    "fastify": "^5.7.1"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@types/cors": "^2.8.19",
@@ -52,16 +62,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.0"
-  },
-  "dependencies": {
-    "@fastify/helmet": "^13.0.2",
-    "@neondatabase/serverless": "^1.0.2",
-    "colorette": "^2.0.20",
-    "cors": "^2.8.5",
-    "date-fns": "^4.1.0",
-    "dotenv": "^17.2.3",
-    "drizzle-orm": "^0.45.1",
-    "fastify": "^5.7.1"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint"
