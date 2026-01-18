@@ -2,9 +2,9 @@ import Fastify from "fastify"
 import dotenv from "dotenv"
 import helmet from "@fastify/helmet"
 
-import userRoutes from "./router/user"
-import errorHandlerPlugin from "./plugins/errorHandlerPlugin"
-import { getLoggerConfig } from "./utils/logger"
+import userRoutes from "./router/user.ts"
+import errorHandlerPlugin from "./plugins/errorHandlerPlugin.ts"
+import { getLoggerConfig } from "./utils/logger.ts"
 
 dotenv.config()
 
@@ -46,13 +46,11 @@ main()
 
 // eslint-disable-next-line "@typescript-eslint/no-explicit-any"
 process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
-  // eslint-disable-next-line "no-console"
   console.log(p)
   throw new Error(reason)
 })
 
 process.on("uncaughtException", (error: Error) => {
-  // eslint-disable-next-line "no-console"
   console.error(error)
   // INFO: if you want to quit the process(usually when the error is unknown), only after properly logging it
   // process.exit(1)

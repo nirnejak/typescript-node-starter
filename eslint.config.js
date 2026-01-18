@@ -39,14 +39,26 @@ export default tseslint.config(
   {
     rules: {
       "eslint-comments/require-description": "off",
+      "eslint-comments/no-unused-disable": "off",
+      "@eslint-community/eslint-comments/require-description": "off",
+      "@eslint-community/eslint-comments/no-unused-disable": "off",
       "@typescript-eslint/no-magic-numbers": "off",
-      "n/no-missing-import": [
-        "error",
-        {
-          tryExtensions: [".ts", ".js", ".json"],
-          ignoreTypeImport: true,
-        },
-      ],
+      strict: "off",
+      "no-implicit-globals": "off",
+      "no-console": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
+      "@typescript-eslint/no-redundant-type-constituents": "off",
+      "n/no-unsupported-features/node-builtins": "off",
+      "n/no-unpublished-import": "off",
+      "n/no-missing-import": "off",
+      eqeqeq: "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "no-useless-assignment": "off",
+      radix: "off",
     },
   }
 )

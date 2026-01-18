@@ -1,4 +1,5 @@
 import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
+import fastifyPlugin from "fastify-plugin"
 
 const userRoutes = (fastify: FastifyInstance): void => {
   fastify.post("/", {
@@ -18,4 +19,4 @@ const userRoutes = (fastify: FastifyInstance): void => {
   })
 }
 
-export default userRoutes
+export default fastifyPlugin(userRoutes)
