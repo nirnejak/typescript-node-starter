@@ -2,9 +2,11 @@ import Fastify from "fastify"
 import dotenv from "dotenv"
 import helmet from "@fastify/helmet"
 
-import userRoutes from "./router/user.ts"
-import errorHandlerPlugin from "./plugins/errorHandlerPlugin.ts"
-import { getLoggerConfig } from "./utils/logger.ts"
+import errorHandlerPlugin from "./plugins/errorHandlerPlugin"
+import { getLoggerConfig } from "./utils/logger"
+
+import userRoutes from "./router/user"
+import waitlistRoutes from "./router/waitlist"
 
 dotenv.config()
 
@@ -33,6 +35,7 @@ fastify.register(errorHandlerPlugin)
 
 // Routes
 fastify.register(userRoutes, { prefix: "/api/users" })
+fastify.register(waitlistRoutes, { prefix: "/api/waitlist" })
 
 const main = async (): Promise<void> => {
   await fastify.listen({
