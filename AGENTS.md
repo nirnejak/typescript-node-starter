@@ -1,12 +1,12 @@
-# AGENTS.md - TypeScript Node.js Fastify Starter
+# AGENTS.md - Fastify Bun Starter
 
-Essential information for AI coding agents working in this TypeScript Node.js repository.
+Essential information for AI coding agents working in this TypeScript Bun repository.
 
 ## Tech Stack
 
 - **Framework**: Fastify v5.7.1
 - **Language**: TypeScript v5.9.3 (ES2017 target, ES modules)
-- **Runtime**: Node.js 24.12.0 (managed with Volta)
+- **Runtime**: Bun 1.3.5
 - **Package Manager**: Bun
 - **Database**: Drizzle ORM with Neon PostgreSQL
 - **Security**: Helmet for security headers
@@ -37,11 +37,18 @@ Essential information for AI coding agents working in this TypeScript Node.js re
 
 ### Testing
 
-**No testing framework configured yet.** When adding tests:
+**Testing Framework**: Vitest (recommended)
 
-1. Install Vitest: `bun add -D vitest @types/node`
-2. Add scripts: `"test": "vitest", "test:run": "vitest run"`
-3. Create `*.test.ts` files in `__tests__/` or alongside source files
+#### Setup Testing
+
+1. Install Vitest: `bun add -D vitest @types/node @vitest/ui`
+2. Add test scripts: `"test": "vitest", "test:run": "vitest run"`
+
+#### Running Tests
+
+- `bun run test` - Run tests in watch mode
+- `bun run test:run` - Run all tests once
+- `bun run test:run componentName.test.ts` - Run specific test file
 
 ## Code Style Guidelines
 
@@ -54,18 +61,9 @@ Essential information for AI coding agents working in this TypeScript Node.js re
 
 ### Import/Export Style
 
-```typescript
-// Prefer named imports over default imports
-import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
-import Fastify from "fastify"
-
-// Group imports by type: external libraries, then local imports
-import userRoutes from "./router/user"
-import { getLoggerConfig } from "./utils/logger"
-
-// Use type-only imports for types/interfaces
-import type { PinoLoggerOptions } from "fastify/types/logger"
-```
+- Prefer named imports over default imports
+- Group imports by type: external libraries, then local imports
+- Use type-only imports for types/interfaces
 
 ### Naming Conventions
 
@@ -76,22 +74,21 @@ import type { PinoLoggerOptions } from "fastify/types/logger"
 
 ### Formatting (Prettier)
 
-- **No semicolons** at end of statements
-- **Double quotes** for strings
-- **2-space indentation**
-- **Trailing commas** in ES5 style (objects, arrays, function parameters)
+- No semicolons, double quotes, 2-space indentation, trailing commas
+
+### Linting (ESLint)
+
+- Flat config with TypeScript ESLint, uses eslint-config-love
+- Prettier integration, lint-staged runs on commits
 
 ### TypeScript Types and Interfaces
 
 ```typescript
 // Always use explicit types for function parameters
 const userRoutes = (fastify: FastifyInstance): void => {
-  // Use proper typing for request/response bodies
   fastify.post("/", {
     handler: async (
-      request: FastifyRequest<{
-        Body: { name: string; age: number }
-      }>,
+      request: FastifyRequest<{ Body: { name: string; age: number } }>,
       reply: FastifyReply
     ) => {
       // Implementation
@@ -120,17 +117,6 @@ function errorHandlerPlugin(fastify: FastifyInstance): void {
 }
 ```
 
-### Database (Drizzle ORM)
-
-```typescript
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 255 }).notNull(),
-  email: varchar("email", { length: 255 }).notNull(),
-  password: text("password").notNull(),
-})
-```
-
 ### Fastify Patterns
 
 ```typescript
@@ -138,9 +124,22 @@ export const users = pgTable("users", {
 fastify.register(helmet, { global: true })
 fastify.register(userRoutes, { prefix: "/api/users" })
 
-// Use hooks for cross-cutting concerns
-fastify.addHook("onRequest", () => {
-  fastify.log.info("Got a request")
+// Route handlers with proper typing
+fastify.get("/api/user/:id", {
+  schema: {
+    params: {
+      type: "object",
+      properties: { id: { type: "string" } },
+      required: ["id"],
+    },
+  },
+  handler: async (
+    request: FastifyRequest<{ Params: { id: string } }>,
+    reply: FastifyReply
+  ) => {
+    const { id } = request.params
+    // Implementation
+  },
 })
 ```
 
@@ -149,12 +148,25 @@ fastify.addHook("onRequest", () => {
 ```
 src/
 ├── index.ts              # Application entry point
-├── router/               # Route handlers
-├── models/               # Database schemas
-├── utils/                # Utility functions
-├── plugins/              # Fastify plugins
-└── controllers/          # Business logic (if applicable)
+├── router/               # Route handlers (Fastify plugin pattern)
+├── models/               # Database schemas (Drizzle ORM)
+├── controllers/          # Business logic layer
+├── utils/                # Utility functions and helpers
+├── plugins/              # Fastify plugins (middleware, error handlers)
+└── drizzle.config.ts     # Database configuration
 ```
+
+### Environment Variables
+
+- **PORT**: Server port (default: 5000)
+- **DATABASE_URL**: PostgreSQL connection string (required for production)
+- Create `.env` file based on `.env.example`
+
+### Git Hooks & Quality Assurance
+
+- **Husky**: Pre-commit hooks for code quality
+- **lint-staged**: Runs ESLint on staged files before commits
+- **Pre-commit**: Automatically runs `bun run lint` on `*.{js,ts}` files
 
 ## Quick Start for New Agents
 
@@ -165,3 +177,28 @@ src/
 5. **Type Check**: `bun run type-check`
 
 Always run `bun run lint:fix` and `bun run format` before committing changes.
+
+### Database Development
+
+- **Local**: `bun run db:push` for schema changes
+- **Production**: `bun run db:generate` and `bun run db:migrate`
+- **Studio**: `bun run db:studio` for database visualization
+
+### Additional Guidelines for Agents
+
+#### Code Review Checklist
+
+- [ ] All imports follow the specified pattern (named imports preferred)
+- [ ] Functions have explicit return types
+- [ ] Database queries use proper typing with Drizzle ORM
+- [ ] Error handling follows the custom plugin pattern
+- [ ] Routes use proper Fastify schema validation
+- [ ] No console.log statements in production code
+
+#### File Organization
+
+- **Routes**: `src/router/` with kebab-case naming
+- **Models**: `src/models/` for database schemas
+- **Controllers**: `src/controllers/` for business logic
+- **Utils**: `src/utils/` for shared utilities
+- **Plugins**: `src/plugins/` for Fastify plugins
