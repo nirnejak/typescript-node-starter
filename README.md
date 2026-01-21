@@ -1,6 +1,6 @@
 # TypeScript Node Starter
 
-Node.js and Fastify project starter using TypeScript.
+Node.js(Bun) and Fastify project starter using TypeScript.
 
 ## Tech Stack
 
@@ -9,12 +9,13 @@ Node.js and Fastify project starter using TypeScript.
 - **Database**: Drizzle ORM with Neon PostgreSQL
 - **Runtime**: Node.js 24.12.0 (Volta)
 
-## Quick Start
+## Getting Started
 
-```bash
-bun install
-bun run dev
-```
+1. Clone and install: `git clone https://github.com/nirnejak/typescript-node-starter.git && cd typescript-node-starter && bun install`
+
+2. Set up environment: `cp .env.example .env` and update `.env` with your config
+
+3. Start dev server: `bun run dev`
 
 ## Available Scripts
 
