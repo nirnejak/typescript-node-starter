@@ -106,7 +106,7 @@ docker run -p 5000:5000 <image-id>
 
 ## Next Steps
 
-- API Doc - [Swagger](https://swagger.io/)
+- API Doc - [@fastify/swagger](https://github.com/fastify/fastify-swagger)
+- Web Sockets - [@fastify/websocket](https://github.com/fastify/fastify-websocket)
 - GraphQL - [Mercurius](https://mercurius.dev/)
-- Web Socket - [Socket.io](https://socket.io/)
 - Background Worker - [BullMQ](https://docs.bullmq.io/)
