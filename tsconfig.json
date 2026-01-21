@@ -14,8 +14,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "erasableSyntaxOnly": true,
-    "allowImportingTsExtensions": true
+    "erasableSyntaxOnly": true
   },
   "include": ["**/*.ts", "**/*.tsx", "./eslint.config.js"],
   "exclude": ["node_modules"],
