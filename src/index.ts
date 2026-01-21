@@ -1,13 +1,14 @@
 import { Hono } from "hono"
+import { logger } from "hono/logger"
+import { secureHeaders } from "hono/secure-headers"
 
 import userRoutes from "./router/user"
 import waitlistRoutes from "./router/waitlist"
 
 const app = new Hono()
 
-// TODO: setup a logger
-// TODO: setup helmet for security headers
-// TODO: add error handling plugin
+app.use(logger())
+app.use(secureHeaders())
 
 app.get("/", (c) => {
   return c.text("Hello Hono!")
