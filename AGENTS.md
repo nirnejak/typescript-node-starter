@@ -6,7 +6,7 @@ Essential information for AI coding agents working in this TypeScript Bun reposi
 
 - **Framework**: Fastify v5.7.1
 - **Language**: TypeScript v5.9.3 (ES2017 target, ES modules)
-- **Runtime**: Bun 1.3.5
+- **Runtime**: Bun v1.3.5
 - **Package Manager**: Bun
 - **Database**: Drizzle ORM with Neon PostgreSQL
 - **Security**: Helmet for security headers
