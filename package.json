@@ -38,7 +38,6 @@
   "dependencies": {
     "@fastify/helmet": "^13.0.2",
     "@neondatabase/serverless": "^1.0.2",
-    "colorette": "^2.0.20",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
