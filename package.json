@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
-    "@types/heapdump": "^0.3.4",
     "@types/node": "^25.0.9",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9.39.2",
