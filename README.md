@@ -26,10 +26,6 @@ Node.js(Bun) and Fastify project starter using TypeScript.
 - `bun run db:generate` - Generate migrations
 - `bun run db:migrate` - Run migrations
 
-## Setup
-
-Configure `.env` file for local development. See AGENTS.md for detailed agent instructions.
-
 ## Next Steps
 
 - API Documentation ([@fastify/swagger](https://github.com/fastify/fastify-swagger))
