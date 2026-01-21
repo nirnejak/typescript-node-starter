@@ -4,7 +4,6 @@ import type {
   FastifyReply,
   FastifyRequest,
 } from "fastify"
-import fastifyPlugin from "fastify-plugin"
 
 import { allWaitlists, addToWaitlist } from "@/controllers/waitlist"
 
@@ -32,4 +31,4 @@ const waitlistRoutes = (
   done()
 }
 
-export default fastifyPlugin(waitlistRoutes)
+export default waitlistRoutes

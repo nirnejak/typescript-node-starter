@@ -3,7 +3,6 @@ import type {
   FastifyPluginOptions,
   FastifyError,
 } from "fastify"
-import fastifyPlugin from "fastify-plugin"
 
 const errorHandlerPlugin = (
   fastify: FastifyInstance,
@@ -29,4 +28,4 @@ const errorHandlerPlugin = (
   done()
 }
 
-export default fastifyPlugin(errorHandlerPlugin)
+export default errorHandlerPlugin

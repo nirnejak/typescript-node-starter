@@ -4,7 +4,6 @@ import type {
   FastifyReply,
   FastifyRequest,
 } from "fastify"
-import fastifyPlugin from "fastify-plugin"
 
 const userRoutes = (
   fastify: FastifyInstance,
@@ -39,4 +38,4 @@ const userRoutes = (
   done()
 }
 
-export default fastifyPlugin(userRoutes)
+export default userRoutes
