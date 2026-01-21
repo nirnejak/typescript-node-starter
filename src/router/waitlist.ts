@@ -1,15 +1,24 @@
-import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
+import type {
+  FastifyInstance,
+  FastifyPluginOptions,
+  FastifyReply,
+  FastifyRequest,
+} from "fastify"
 import fastifyPlugin from "fastify-plugin"
 
 import { allWaitlists, addToWaitlist } from "@/controllers/waitlist"
 
-const waitlistRoutes = (fastify: FastifyInstance): void => {
-  fastify.get("/", {
+const waitlistRoutes = (
+  fastify: FastifyInstance,
+  options: FastifyPluginOptions,
+  done: () => void
+): void => {
+  fastify.get("/api/waitlist/", {
     handler: async (request: FastifyRequest, reply: FastifyReply) => {
-      return await reply.code(201).send(allWaitlists)
+      return await reply.code(200).send(allWaitlists)
     },
   })
-  fastify.post("/", {
+  fastify.post("/api/waitlist/", {
     handler: async (
       request: FastifyRequest<{ Body: { email: string } }>,
       reply: FastifyReply
@@ -19,6 +28,8 @@ const waitlistRoutes = (fastify: FastifyInstance): void => {
       return await reply.code(201).send(res)
     },
   })
+
+  done()
 }
 
 export default fastifyPlugin(waitlistRoutes)
