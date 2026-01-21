@@ -1,16 +1,14 @@
-# AGENTS.md - Fastify Bun Starter
+# AGENTS.md - Hono Bun Starter
 
 Essential information for AI coding agents working in this TypeScript Bun repository.
 
 ## Tech Stack
 
-- **Framework**: Fastify v5.7.1
-- **Language**: TypeScript v5.9.3 (ES2017 target, ES modules)
+- **Framework**: Hono v4.x
+- **Language**: TypeScript v5.x (ES2017 target, ES modules)
 - **Runtime**: Bun v1.3.5
 - **Package Manager**: Bun
 - **Database**: Drizzle ORM with Neon PostgreSQL
-- **Security**: Helmet for security headers
-- **Logging**: Pino with pino-pretty
 
 ## Essential Commands
 

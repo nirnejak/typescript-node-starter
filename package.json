@@ -1,7 +1,7 @@
 {
-  "name": "fastify-bun-starter",
+  "name": "hono-bun-starter",
   "version": "1.0.0",
-  "description": "Fastify Bun Starter",
+  "description": "Hono Bun Starter",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -21,20 +21,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nirnejak/fastify-bun-starter.git"
+    "url": "git+https://github.com/nirnejak/hono-bun-starter.git"
   },
   "keywords": [
     "Typescript",
     "Bun",
-    "Fastify",
+    "Hono",
     "Drizzle"
   ],
   "author": "Jitendra Nirnejak",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nirnejak/fastify-bun-starter/issues"
+    "url": "https://github.com/nirnejak/hono-bun-starter/issues"
   },
-  "homepage": "https://github.com/nirnejak/fastify-bun-starter#readme",
+  "homepage": "https://github.com/nirnejak/hono-bun-starter#readme",
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
     "date-fns": "^4.1.0",
