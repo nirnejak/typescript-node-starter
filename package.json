@@ -37,6 +37,7 @@
   "homepage": "https://github.com/nirnejak/hono-bun-starter#readme",
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
+    "better-auth": "^1.4.17",
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.1",
     "hono": "^4.11.4"
