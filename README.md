@@ -1,4 +1,4 @@
-# TypeScript Node Starter
+# Fastify Bun Starter
 
 Node.js(Bun) and Fastify project starter using TypeScript.
 
@@ -11,7 +11,7 @@ Node.js(Bun) and Fastify project starter using TypeScript.
 
 ## Getting Started
 
-1. Clone and install: `git clone https://github.com/nirnejak/typescript-node-starter.git && cd typescript-node-starter && bun install`
+1. Clone and install: `git clone https://github.com/nirnejak/fastify-bun-starter.git && cd fastify-bun-starter && bun install`
 
 2. Set up environment: `cp .env.example .env` and update `.env` with your config
 
