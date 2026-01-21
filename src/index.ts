@@ -16,12 +16,14 @@ const fastify = Fastify({
 
 fastify.register(helmet, { global: true })
 
-fastify.addHook("onRequest", () => {
+fastify.addHook("onRequest", (request, reply, done) => {
   fastify.log.info("Got a request")
+  done()
 })
 
-fastify.addHook("onResponse", () => {
+fastify.addHook("onResponse", (request, reply, done) => {
   fastify.log.info(`Responding`)
+  done()
 })
 
 fastify.get("/", () => {
@@ -34,8 +36,8 @@ fastify.get("/", () => {
 fastify.register(errorHandlerPlugin)
 
 // Routes
-fastify.register(userRoutes, { prefix: "/api/users" })
-fastify.register(waitlistRoutes, { prefix: "/api/waitlist" })
+fastify.register(userRoutes)
+fastify.register(waitlistRoutes)
 
 const main = async (): Promise<void> => {
   await fastify.listen({
@@ -56,5 +58,5 @@ process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
 process.on("uncaughtException", (error: Error) => {
   console.error(error)
   // INFO: if you want to quit the process(usually when the error is unknown), only after properly logging it
-  // process.exit(1)
+  process.exit(1)
 })
