@@ -9,9 +9,7 @@ Node.js and Fastify project starter using TypeScript
 ## Additional Packages Used
 
 - drizzle - for database ORM
-- colorette - for styling console output
 - date-fns - for date operations and formatting
-- heapdump - for getting dump of the current memory heap
 
 ---
 
