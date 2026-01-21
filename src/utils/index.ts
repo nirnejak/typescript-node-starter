@@ -1,3 +1,3 @@
-import { formatToDate, formatToDateTime, fromNow } from "./datetime.ts"
+import { formatToDate, formatToDateTime, fromNow } from "./datetime"
 
 export default { formatToDate, formatToDateTime, fromNow }
