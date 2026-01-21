@@ -7,7 +7,7 @@ Node.js(Bun) and Fastify project starter using TypeScript.
 - **Framework**: Fastify v5.7.1
 - **Language**: TypeScript v5.9.3
 - **Database**: Drizzle ORM with Neon PostgreSQL
-- **Runtime**: Bun 1.3.5 or Node.js 24.12.0 (Volta)
+- **Runtime**: Bun v1.3.5 or Node.js 24.12.0 (Volta)
 - **Package Manager**: Bun
 - **Database**: Drizzle ORM with Neon PostgreSQL
 - **Security**: Helmet for security headers
