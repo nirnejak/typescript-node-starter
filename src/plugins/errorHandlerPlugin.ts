@@ -1,7 +1,7 @@
 import type { FastifyInstance, FastifyError } from "fastify"
 import fastifyPlugin from "fastify-plugin"
 
-function errorHandlerPlugin(fastify: FastifyInstance): void {
+function errorHandlerPlugin(fastify: FastifyInstance, options, done): void {
   fastify.setErrorHandler((error: FastifyError, request, reply) => {
     request.log.error(error)
 
@@ -17,6 +17,8 @@ function errorHandlerPlugin(fastify: FastifyInstance): void {
       })
     }
   })
+
+  done()
 }
 
 export default fastifyPlugin(errorHandlerPlugin)
