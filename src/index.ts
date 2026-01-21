@@ -1,5 +1,4 @@
 import Fastify from "fastify"
-import dotenv from "dotenv"
 import helmet from "@fastify/helmet"
 
 import errorHandlerPlugin from "./plugins/error-handler-plugin"
@@ -7,8 +6,6 @@ import { getLoggerConfig } from "./utils/logger"
 
 import userRoutes from "./router/user"
 import waitlistRoutes from "./router/waitlist"
-
-dotenv.config()
 
 const fastify = Fastify({
   logger: getLoggerConfig(),

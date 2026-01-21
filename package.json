@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
-    "build": "bun build src/index.ts --outdir dist --external:@neondatabase/serverless --external:drizzle-orm --external:fastify --external:@fastify/helmet --external:dotenv --external:date-fns",
+    "build": "bun build src/index.ts --outdir dist --external:@neondatabase/serverless --external:drizzle-orm --external:fastify --external:@fastify/helmet --external:date-fns",
     "start": "bun dist/index.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
@@ -39,7 +39,6 @@
     "@fastify/helmet": "^13.0.2",
     "@neondatabase/serverless": "^1.0.2",
     "date-fns": "^4.1.0",
-    "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
     "fastify": "^5.7.1"
   },
