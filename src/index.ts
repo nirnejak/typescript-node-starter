@@ -2,6 +2,7 @@ import { Hono } from "hono"
 import { logger } from "hono/logger"
 import { secureHeaders } from "hono/secure-headers"
 
+import streamRoute from "./router/stream"
 import userRoutes from "./router/user"
 import waitlistRoutes from "./router/waitlist"
 
@@ -14,6 +15,7 @@ app.get("/", (c) => {
   return c.text("Hello Hono!")
 })
 
+app.route("/stream/", streamRoute)
 app.route("/api/user/", userRoutes)
 app.route("/api/waitlist/", waitlistRoutes)
 
