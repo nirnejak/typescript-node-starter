@@ -1,50 +1,22 @@
-import Fastify from "fastify"
-import helmet from "@fastify/helmet"
-
-import errorHandlerPlugin from "./plugins/error-handler-plugin"
-import { getLoggerConfig } from "./utils/logger"
+import { Hono } from "hono"
 
 import userRoutes from "./router/user"
 import waitlistRoutes from "./router/waitlist"
 
-const fastify = Fastify({
-  logger: getLoggerConfig(),
+const app = new Hono()
+
+// TODO: setup a logger
+// TODO: setup helmet for security headers
+// TODO: add error handling plugin
+
+app.get("/", (c) => {
+  return c.text("Hello Hono!")
 })
 
-fastify.register(helmet, { global: true })
+app.route("/api/user", userRoutes)
+app.route("/api/waitlist", waitlistRoutes)
 
-fastify.addHook("onRequest", (request, reply, done) => {
-  fastify.log.info("Got a request")
-  done()
-})
-
-fastify.addHook("onResponse", (request, reply, done) => {
-  fastify.log.info(`Responding`)
-  done()
-})
-
-fastify.get("/", () => {
-  return {
-    message: "Hello Fastify!",
-  }
-})
-
-// Error handling plugin
-fastify.register(errorHandlerPlugin)
-
-// Routes
-fastify.register(userRoutes)
-fastify.register(waitlistRoutes)
-
-const main = async (): Promise<void> => {
-  await fastify.listen({
-    port: parseInt(process.env.PORT ?? "5000"),
-    host: "0.0.0.0",
-  })
-}
-
-// eslint-disable-next-line "@typescript-eslint/no-floating-promises"
-main()
+export default app
 
 // eslint-disable-next-line "@typescript-eslint/no-explicit-any"
 process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
