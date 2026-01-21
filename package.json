@@ -40,7 +40,8 @@
     "@neondatabase/serverless": "^1.0.2",
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.1",
-    "fastify": "^5.7.1"
+    "fastify": "^5.7.1",
+    "hono": "^4.11.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
