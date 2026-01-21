@@ -27,6 +27,5 @@ process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
 
 process.on("uncaughtException", (error: Error) => {
   console.error(error)
-  // INFO: if you want to quit the process(usually when the error is unknown), only after properly logging it
   process.exit(1)
 })
