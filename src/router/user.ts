@@ -1,41 +1,18 @@
-import type {
-  FastifyInstance,
-  FastifyPluginOptions,
-  FastifyReply,
-  FastifyRequest,
-} from "fastify"
+import { Hono } from "hono"
 
-const userRoutes = (
-  fastify: FastifyInstance,
-  options: FastifyPluginOptions,
-  done: () => void
-): void => {
-  fastify.get("/api/user/", {
-    handler: async (request: FastifyRequest, reply: FastifyReply) => {
-      const users = [
-        { name: "Alice", age: 30 },
-        { name: "Bob", age: 25 },
-      ]
-      return await reply.code(200).send(users)
-    },
-  })
-  fastify.post("/api/user/", {
-    handler: async (
-      request: FastifyRequest<{
-        Body: {
-          name: string
-          age: number
-        }
-      }>,
-      reply: FastifyReply
-    ) => {
-      const { body } = request
+const user = new Hono()
 
-      return await reply.code(201).send(body)
-    },
-  })
+user.get("/", (c) => {
+  const users = [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 },
+  ]
+  return c.json(users, 200)
+})
 
-  done()
-}
+user.post("/", async (c) => {
+  const body = await c.req.json()
+  return c.json(body, 201)
+})
 
-export default userRoutes
+export default user
