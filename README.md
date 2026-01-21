@@ -1,112 +1,36 @@
-# Typescript Node Starter
+# TypeScript Node Starter
 
-Node.js and Fastify project starter using TypeScript
+Node.js and Fastify project starter using TypeScript.
 
-> Note: Need to configure `.env` file to use local server
+## Tech Stack
 
----
+- **Framework**: Fastify v5.7.1
+- **Language**: TypeScript v5.9.3
+- **Database**: Drizzle ORM with Neon PostgreSQL
+- **Runtime**: Node.js 24.12.0 (Volta)
 
-## Additional Packages Used
-
-- drizzle - for database ORM
-- date-fns - for date operations and formatting
-
----
-
-## Available Scripts
-
-**Install Dependencies**
+## Quick Start
 
 ```bash
 bun install
+bun run dev
 ```
 
-**Setup Pre-commit**
+## Available Scripts
 
-```bash
-bun run prepare
-```
+- `bun run dev` - Start development server
+- `bun run build` - Build for production
+- `bun run lint` - Run ESLint
+- `bun run format` - Format with Prettier
+- `bun run db:generate` - Generate migrations
+- `bun run db:migrate` - Run migrations
 
-**Check ESLint issues**
+## Setup
 
-```bash
-bun run lint
-```
-
-**Format with Prettier**
-
-```bash
-bun run format
-```
-
-**Start Development Server**
-
-```bash
-bun run develop
-```
-
-**Create Migrations**
-
-```bash
-bun run db:generate
-```
-
-**Run Migrations**
-
-```bash
-bun run db:migrate
-```
-
-**Push Migration changes**
-
-```bash
-bun run db:push
-```
-
-**Build for Production**
-
-```bash
-bun run build
-```
-
-**Start Production Server**
-
-```bash
-bun start
-```
-
----
-
-## Docker Config
-
-**Build Image**
-
-```bash
-docker build
-```
-
-**Run Image**
-
-```bash
-docker run -p 5000:5000 <image-id>
-```
-
----
-
-## Development Setup
-
-- VS Code - Install the recommended extensions
-- Volta - For managing node versions
-
-## Guides
-
-- [Best Practices](https://github.com/goldbergyoni/nodebestpractices)
-
----
+Configure `.env` file for local development. See AGENTS.md for detailed agent instructions.
 
 ## Next Steps
 
-- API Doc - [@fastify/swagger](https://github.com/fastify/fastify-swagger)
-- Web Sockets - [@fastify/websocket](https://github.com/fastify/fastify-websocket)
-- GraphQL - [Mercurius](https://mercurius.dev/)
-- Background Worker - [BullMQ](https://docs.bullmq.io/)
+- API Documentation ([@fastify/swagger](https://github.com/fastify/fastify-swagger))
+- WebSockets ([@fastify/websocket](https://github.com/fastify/fastify-websocket))
+- GraphQL ([Mercurius](https://mercurius.dev/))
