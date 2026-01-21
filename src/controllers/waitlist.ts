@@ -1,5 +1,5 @@
-import { db } from "@/drizzle.config"
 import { waitlist } from "@/models/schema"
+import { db } from "@/utils/db"
 
 export async function allWaitlists() {
   try {
