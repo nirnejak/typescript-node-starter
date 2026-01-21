@@ -35,18 +35,12 @@ Essential information for AI coding agents working in this TypeScript Bun reposi
 
 ### Testing
 
-**Testing Framework**: Vitest (recommended)
+**Note**: No testing framework is currently configured. To add testing:
 
-#### Setup Testing
-
-1. Install Vitest: `bun add -D vitest @types/node @vitest/ui`
-2. Add test scripts: `"test": "vitest", "test:run": "vitest run"`
-
-#### Running Tests
-
-- `bun run test` - Run tests in watch mode
-- `bun run test:run` - Run all tests once
-- `bun run test:run componentName.test.ts` - Run specific test file
+1. Install Vitest: `bun add -D vitest @vitest/ui`
+2. Add test scripts to package.json: `"test": "vitest", "test:run": "vitest run"`
+3. Run all tests: `bun run test:run`
+4. Run specific test: `bun run test:run path/to/test-file.test.ts`
 
 ## Code Style Guidelines
 
@@ -59,108 +53,149 @@ Essential information for AI coding agents working in this TypeScript Bun reposi
 
 ### Import/Export Style
 
-- Prefer named imports over default imports
-- Group imports by type: external libraries, then local imports
-- Use type-only imports for types/interfaces
+- Prefer named imports over default imports for better tree-shaking
+- Group imports by type: external libraries first, then local imports
+- Use absolute imports with `@/` prefix for internal modules
+- One import per line for clarity
+
+```typescript
+import { Hono } from "hono"
+import { logger } from "hono/logger"
+
+import { db } from "@/drizzle.config"
+import { users } from "@/models/schema"
+```
 
 ### Naming Conventions
 
 - **Variables/Functions**: camelCase (`userRoutes`, `getLoggerConfig`)
-- **Types/Interfaces/Classes**: PascalCase (`FastifyInstance`, `UserData`)
+- **Types/Interfaces/Classes**: PascalCase (`UserData`, `HonoInstance`)
 - **Files**: kebab-case (`user-router.ts`, `error-handler.ts`)
-- **Database columns**: snake_case (Drizzle ORM convention)
+- **Database tables/columns**: snake_case (Drizzle ORM convention)
+- **Constants**: UPPER_SNAKE_CASE
 
 ### Formatting (Prettier)
 
-- No semicolons, double quotes, 2-space indentation, trailing commas
+- No semicolons
+- Double quotes for strings
+- 2-space indentation
+- Trailing commas in ES5 style
+- Auto end-of-line handling
 
 ### Linting (ESLint)
 
-- Flat config with TypeScript ESLint, uses eslint-config-love
-- Prettier integration, lint-staged runs on commits
+- Flat config with TypeScript ESLint and eslint-config-love
+- Prettier integration for consistent formatting
+- Additional plugins: node, promise, security
+- Custom rules disable several strict checks for developer experience
 
-### TypeScript Types and Interfaces
+### Hono Patterns
 
 ```typescript
-// Always use explicit types for function parameters
-const userRoutes = (fastify: FastifyInstance): void => {
-  fastify.post("/", {
-    handler: async (
-      request: FastifyRequest<{ Body: { name: string; age: number } }>,
-      reply: FastifyReply
-    ) => {
-      // Implementation
-    },
-  })
+// Application setup
+const app = new Hono()
+
+// Middleware
+app.use(logger())
+app.use(secureHeaders())
+
+// Routes
+app.get("/", (c) => c.text("Hello Hono!"))
+
+// Route groups
+const api = new Hono()
+api.get("/users", getUsersHandler)
+app.route("/api", api)
+
+export default app
+```
+
+### Database Patterns (Drizzle ORM)
+
+```typescript
+// Schema definition
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull(),
+})
+
+// Database connection
+const sql = neon(process.env.DATABASE_URL!)
+export const db = drizzle({ client: sql })
+
+// Queries
+export async function getUsers() {
+  return await db.select().from(users)
+}
+
+export async function createUser(email: string) {
+  return await db.insert(users).values({ email }).returning()
 }
 ```
 
 ### Error Handling
 
 ```typescript
-// Use custom error handler plugin pattern
-function errorHandlerPlugin(fastify: FastifyInstance): void {
-  fastify.setErrorHandler((error, request, reply) => {
-    request.log.error(error)
-    if (error.validation) {
-      reply
-        .status(400)
-        .send({ error: "Validation Error", message: error.message })
-    } else {
-      reply
-        .status(500)
-        .send({ error: "Internal Server Error", message: error.message })
-    }
-  })
+// Controller error handling
+export async function someOperation() {
+  try {
+    // Operation logic
+    return { success: true, data }
+  } catch (error) {
+    console.error("Operation failed:", error)
+    return { success: false, message: "Operation failed" }
+  }
 }
-```
 
-### Fastify Patterns
-
-```typescript
-// Register plugins and routes
-fastify.register(helmet, { global: true })
-fastify.register(userRoutes, { prefix: "/api/users" })
-
-// Route handlers with proper typing
-fastify.get("/api/user/:id", {
-  schema: {
-    params: {
-      type: "object",
-      properties: { id: { type: "string" } },
-      required: ["id"],
-    },
-  },
-  handler: async (
-    request: FastifyRequest<{ Params: { id: string } }>,
-    reply: FastifyReply
-  ) => {
-    const { id } = request.params
-    // Implementation
-  },
+// Global error handling in main app
+app.onError((err, c) => {
+  console.error(`${err}`)
+  return c.text("Internal Server Error", 500)
 })
 ```
 
-### Project Structure
+### Controller Patterns
+
+```typescript
+// Business logic separation
+export async function getUsers() {
+  try {
+    const users = await db.select().from(usersTable)
+    return { success: true, data: users }
+  } catch (error) {
+    console.error("Database error:", error)
+    return { success: false, message: "Failed to fetch users" }
+  }
+}
+
+// Route handler integration
+app.get("/users", async (c) => {
+  const result = await getUsers()
+  return result.success
+    ? c.json(result.data)
+    : c.json({ error: result.message }, 500)
+})
+```
+
+## Project Structure
 
 ```
 src/
-├── index.ts              # Application entry point
-├── router/               # Route handlers (Fastify plugin pattern)
-├── models/               # Database schemas (Drizzle ORM)
-├── controllers/          # Business logic layer
+├── index.ts              # Application entry point and middleware setup
+├── router/               # Route definitions (Hono sub-apps)
+├── models/               # Database schemas (Drizzle ORM tables)
+├── controllers/          # Business logic and data operations
 ├── utils/                # Utility functions and helpers
-├── plugins/              # Fastify plugins (middleware, error handlers)
 └── drizzle.config.ts     # Database configuration
 ```
 
-### Environment Variables
+## Environment Variables
 
-- **PORT**: Server port (default: 5000)
-- **DATABASE_URL**: PostgreSQL connection string (required for production)
+- **PORT**: Server port (default: 9000 in .env.example)
+- **DATABASE_URL**: Neon PostgreSQL connection string (required)
 - Create `.env` file based on `.env.example`
 
-### Git Hooks & Quality Assurance
+## Git Hooks & Quality Assurance
 
 - **Husky**: Pre-commit hooks for code quality
 - **lint-staged**: Runs ESLint on staged files before commits
@@ -187,16 +222,16 @@ Always run `bun run lint:fix` and `bun run format` before committing changes.
 #### Code Review Checklist
 
 - [ ] All imports follow the specified pattern (named imports preferred)
-- [ ] Functions have explicit return types
-- [ ] Database queries use proper typing with Drizzle ORM
-- [ ] Error handling follows the custom plugin pattern
-- [ ] Routes use proper Fastify schema validation
-- [ ] No console.log statements in production code
+- [ ] Functions have explicit return types where beneficial
+- [ ] Database operations include proper error handling
+- [ ] Routes use appropriate HTTP status codes
+- [ ] No console.log statements in production code (use proper logging)
+- [ ] Environment variables are properly validated
+- [ ] Database queries use parameterized statements (Drizzle handles this)
 
 #### File Organization
 
-- **Routes**: `src/router/` with kebab-case naming
-- **Models**: `src/models/` for database schemas
-- **Controllers**: `src/controllers/` for business logic
-- **Utils**: `src/utils/` for shared utilities
-- **Plugins**: `src/plugins/` for Fastify plugins
+- **Routes**: `src/router/` - Keep route definitions clean, delegate to controllers
+- **Models**: `src/models/` - Database schemas and types only
+- **Controllers**: `src/controllers/` - Business logic and data operations
+- **Utils**: `src/utils/` - Pure functions, helpers, shared logic
