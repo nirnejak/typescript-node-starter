@@ -164,5 +164,4 @@ src/
 4. **Build**: `bun run build`
 5. **Type Check**: `bun run type-check`
 
-Always run `bun run lint:fix` and `bun run format` before committing changes.</content>
-<parameter name="filePath">AGENTS.md
+Always run `bun run lint:fix` and `bun run format` before committing changes.
