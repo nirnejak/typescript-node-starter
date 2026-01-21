@@ -14,8 +14,8 @@ app.get("/", (c) => {
   return c.text("Hello Hono!")
 })
 
-app.route("/api/user", userRoutes)
-app.route("/api/waitlist", waitlistRoutes)
+app.route("/api/user/", userRoutes)
+app.route("/api/waitlist/", waitlistRoutes)
 
 export default app
 
