@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
-    "build": "tsc -p .",
+    "build": "bun build src/index.ts --outdir dist --external:@neondatabase/serverless --external:drizzle-orm --external:fastify --external:@fastify/helmet --external:dotenv --external:date-fns",
     "start": "bun dist/index.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
