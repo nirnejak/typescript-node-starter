@@ -42,7 +42,7 @@
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.1",
     "hono": "^4.11.5",
-    "zod": "^4.3.5"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
