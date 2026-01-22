@@ -1,7 +1,7 @@
 import { neon } from "@neondatabase/serverless"
 import { drizzle } from "drizzle-orm/neon-http"
 
-if (!Bun.env.DATABASE_URL) {
+if (Bun.env.DATABASE_URL === undefined) {
   throw new Error("DATABASE_URL environment variable is not set")
 }
 
