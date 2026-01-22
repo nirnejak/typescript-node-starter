@@ -1,4 +1,6 @@
 import { Hono } from "hono"
+import { zValidator } from "@hono/zod-validator"
+import { z } from "zod"
 
 import { allWaitlists, addToWaitlist } from "@/controllers/waitlist"
 
@@ -9,10 +11,14 @@ waitlist.get("/", async (c) => {
   return c.json(waitlist, 200)
 })
 
-waitlist.post("/", async (c) => {
-  const body = await c.req.json()
-  const res = await addToWaitlist(body.email)
-  return c.json(res, 201)
-})
+waitlist.post(
+  "/",
+  zValidator("json", z.object({ email: z.string() })),
+  async (c) => {
+    const body = c.req.valid("json")
+    const res = await addToWaitlist(body.email)
+    return c.json(res, 201)
+  }
+)
 
 export default waitlist
