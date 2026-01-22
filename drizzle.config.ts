@@ -1,11 +1,12 @@
 "use strict"
+
 import { defineConfig } from "drizzle-kit"
 
 export default defineConfig({
-  schema: "**/schema.ts",
-  out: "./drizzle",
+  schema: "./src/db/schema.ts",
+  out: "./src/db/migrations",
   dialect: "postgresql",
   dbCredentials: {
-    url: Bun.env.DATABASE_URL!,
+    url: process.env.DATABASE_URL!,
   },
 })
