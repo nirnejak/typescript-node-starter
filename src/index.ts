@@ -16,7 +16,11 @@ app.use(secureHeaders())
 app.get("/", (c) => {
   return c.text("Hello Hono!")
 })
-app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw))
+app.on(
+  ["POST", "GET"],
+  "/api/auth/*",
+  async (c) => await auth.handler(c.req.raw)
+)
 app.route("/stream/", streamRoute)
 app.route("/api/user/", userRoutes)
 app.route("/api/waitlist/", waitlistRoutes)
@@ -31,5 +35,6 @@ process.on("unhandledRejection", (reason: string, p: Promise<any>) => {
 
 process.on("uncaughtException", (error: Error) => {
   console.error(error)
+  // eslint-disable-next-line n/no-process-exit
   process.exit(1)
 })
