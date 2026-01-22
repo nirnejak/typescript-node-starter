@@ -1,6 +1,10 @@
-# Hono Bun Starter
+<h1 align="center">
+  Hono Bun Starter
+</h1>
 
-Hono and Bun project starter using TypeScript.
+<p align="center">
+  Hono and Bun project starter using TypeScript.
+</p>
 
 ## Tech Stack
 
