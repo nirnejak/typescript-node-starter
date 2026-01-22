@@ -1,0 +1,9 @@
+import { neon } from "@neondatabase/serverless"
+import { drizzle } from "drizzle-orm/neon-http"
+
+if (Bun.env.DATABASE_URL === undefined) {
+  throw new Error("DATABASE_URL environment variable is not set")
+}
+
+const sql = neon(Bun.env.DATABASE_URL)
+export const db = drizzle({ client: sql })
