@@ -2,9 +2,9 @@ import { Hono } from "hono"
 import { logger } from "hono/logger"
 import { secureHeaders } from "hono/secure-headers"
 
-import streamRoute from "./router/stream"
-import userRoutes from "./router/user"
-import waitlistRoutes from "./router/waitlist"
+import streamRoute from "./routes/stream"
+import userRoutes from "./routes/user"
+import waitlistRoutes from "./routes/waitlist"
 
 import { auth } from "./utils/auth"
 

@@ -300,7 +300,7 @@ process.on("uncaughtException", (error) => {
 ```
 src/
 ├── index.ts              # Application entry point and middleware setup
-├── router/               # Route definitions (Hono sub-apps)
+├── routes/               # Route definitions (Hono sub-apps)
 │   ├── user.ts          # User-related routes
 │   ├── waitlist.ts      # Waitlist routes
 │   └── stream.ts        # Streaming routes
@@ -368,7 +368,7 @@ Always run `bun run lint:fix` and `bun run format` before committing changes.
 
 ### File Organization
 
-- **Routes**: `src/router/` - Keep route definitions clean, delegate to controllers
+- **Routes**: `src/routes/` - Keep route definitions clean, delegate to controllers
 - **Models**: `src/db/` - Database schemas and types only
 - **Controllers**: `src/controllers/` - Business logic and data operations
 - **Utils**: `src/utils/` - Pure functions, helpers, shared logic
